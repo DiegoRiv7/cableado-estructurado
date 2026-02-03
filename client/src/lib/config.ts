@@ -42,7 +42,7 @@ export const BITRIX_WEBFORM_SCRIPT_SERVICIO = "PEGAR_AQUI";
  * 2. Cree un webhook entrante con permisos de CRM
  * 3. Copie la URL generada (formato: https://sudominio.bitrix24.com/rest/1/xxxxx/)
  */
-export const BITRIX_WEBHOOK_URL = "PEGAR_AQUI";
+export const BITRIX_WEBHOOK_URL = "https://bajanet.bitrix24.mx/rest/86/38puplvj0z7arvll/";
 
 /**
  * Métodos disponibles para el webhook:

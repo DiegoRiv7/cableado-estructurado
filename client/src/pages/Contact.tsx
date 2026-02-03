@@ -122,6 +122,7 @@ export default function Contact() {
       EMAIL: [{ VALUE: ventasForm.email, VALUE_TYPE: "WORK" }],
       PHONE: [{ VALUE: ventasForm.telefono, VALUE_TYPE: "WORK" }],
       SOURCE_ID: "WEB",
+      ASSIGNED_BY_ID: 18, // Jafet Rivera como vendedor responsable
       COMMENTS: `Servicio de interés: ${ventasForm.servicio}\n\nMensaje: ${ventasForm.mensaje}`,
     };
 
@@ -168,6 +169,7 @@ export default function Contact() {
       EMAIL: [{ VALUE: soporteForm.email, VALUE_TYPE: "WORK" }],
       PHONE: [{ VALUE: soporteForm.telefono, VALUE_TYPE: "WORK" }],
       SOURCE_ID: "WEB",
+      ASSIGNED_BY_ID: 18, // Jafet Rivera como vendedor responsable
       COMMENTS: `Tipo de solicitud: ${tipoTexto}\nSeveridad: ${severidadTexto}\n\nDescripción:\n${soporteForm.descripcion}`,
     };
 
