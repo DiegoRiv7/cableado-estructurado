@@ -8,18 +8,18 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Software from "./pages/Software";
 import Contact from "./pages/Contact";
-import Blog from "./pages/Blog";
-import BlogArticle from "./pages/BlogArticle";
+import CasosExito from "./pages/CasosExito";
+import Socios from "./pages/Socios";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/servicios" component={Services} />
+      <Route path="/casos-de-exito" component={CasosExito} />
+      <Route path="/socios" component={Socios} />
       <Route path="/software" component={Software} />
       <Route path="/contacto" component={Contact} />
-      <Route path="/blog" component={Blog} />
-      <Route path="/blog/:slug" component={BlogArticle} />
       <Route path="/404" component={NotFound} />
       {/* Páginas placeholder - mostrarán toast */}
       <Route path="/privacidad" component={NotFound} />
