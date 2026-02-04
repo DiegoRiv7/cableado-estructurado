@@ -12,7 +12,6 @@ import { Link, useLocation } from "wouter";
 const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Servicios", href: "/servicios" },
-  { name: "Casos de Éxito", href: "/casos-de-exito" },
   { name: "Socios", href: "/socios" },
   { name: "NetDoc", href: "/software" },
   { name: "Contacto", href: "/contacto" },

@@ -298,24 +298,24 @@ export default function Contact() {
                   </motion.div>
                 </div>
 
-                {/* Map Placeholder */}
+                {/* Mapa Google Maps - Tijuana */}
                 <motion.div variants={fadeInUp} className="mt-8">
                   <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.5!2d-99.17!3d19.39!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDIzJzI0LjAiTiA5OcKwMTAnMTIuMCJX!5e0!3m2!1ses!2smx!4v1234567890"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.5!2d-117.0194!3d32.5149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9484b1c8b1c1b%3A0x0!2sBoulevard%20Paseo%20del%20R%C3%ADo%2016220%2C%20R%C3%ADo%20Tijuana%203ra%20Etapa%2C%2022226%20Tijuana%2C%20B.C.!5e0!3m2!1ses!2smx!4v1700000000000"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title="Ubicación IAMET"
+                      title="Ubicación IAMET - Tijuana"
                     />
                   </div>
                 </motion.div>
               </motion.div>
 
-              {/* Forms */}
+              {/* Formulario de Cotización */}
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -323,26 +323,12 @@ export default function Contact() {
                 variants={fadeInUp}
                 className="lg:col-span-2"
               >
-                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="w-full grid grid-cols-2 h-auto p-1 bg-muted mb-8">
-                    <TabsTrigger
-                      value="ventas"
-                      className="flex items-center gap-2 py-3 data-[state=active]:bg-background"
-                    >
-                      <ShoppingBag className="w-4 h-4" />
-                      <span>Cotización de Proyecto</span>
-                    </TabsTrigger>
-                    <TabsTrigger
-                      value="soporte"
-                      className="flex items-center gap-2 py-3 data-[state=active]:bg-background"
-                    >
-                      <Headphones className="w-4 h-4" />
-                      <span>Soporte Técnico</span>
-                    </TabsTrigger>
-                  </TabsList>
+                <div className="mb-8">
+                  <h3 className="text-2xl font-semibold mb-2">Solicitar Cotización</h3>
+                  <p className="text-muted-foreground">Complete el formulario y nos pondremos en contacto con usted.</p>
+                </div>
 
-                  {/* Formulario de Ventas */}
-                  <TabsContent value="ventas" className="mt-0">
+                <div>
                     {submitted ? (
                       <div className="text-center py-12">
                         <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
@@ -463,180 +449,7 @@ export default function Contact() {
                         )}
                       </>
                     )}
-                  </TabsContent>
-
-                  {/* Formulario de Soporte */}
-                  <TabsContent value="soporte" className="mt-0">
-                    {submitted ? (
-                      <div className="text-center py-12">
-                        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                          <CheckCircle className="w-8 h-8 text-primary" />
-                        </div>
-                        <h3 className="mb-4">¡Solicitud registrada!</h3>
-                        <p className="text-muted-foreground mb-6">
-                          Su folio será confirmado por correo electrónico. 
-                          Nuestro equipo de soporte atenderá su solicitud según la severidad indicada.
-                        </p>
-                        <Button onClick={() => setSubmitted(false)}>
-                          Enviar otra solicitud
-                        </Button>
-                      </div>
-                    ) : (
-                      <>
-                        {BITRIX_WEBFORM_SCRIPT_SERVICIO !== "PEGAR_AQUI" ? (
-                          <div 
-                            dangerouslySetInnerHTML={{ __html: BITRIX_WEBFORM_SCRIPT_SERVICIO }}
-                            className="bitrix-form-container"
-                          />
-                        ) : (
-                          <form onSubmit={handleSoporteSubmit} className="space-y-6">
-                            <div className="grid sm:grid-cols-2 gap-6">
-                              <div className="space-y-2">
-                                <Label htmlFor="s-nombre">Nombre completo *</Label>
-                                <Input
-                                  id="s-nombre"
-                                  required
-                                  value={soporteForm.nombre}
-                                  onChange={(e) => setSoporteForm({...soporteForm, nombre: e.target.value})}
-                                  placeholder="Juan Pérez"
-                                />
-                              </div>
-                              <div className="space-y-2">
-                                <Label htmlFor="s-empresa">Empresa *</Label>
-                                <Input
-                                  id="s-empresa"
-                                  required
-                                  value={soporteForm.empresa}
-                                  onChange={(e) => setSoporteForm({...soporteForm, empresa: e.target.value})}
-                                  placeholder="Nombre de su empresa"
-                                />
-                              </div>
-                            </div>
-
-                            <div className="grid sm:grid-cols-2 gap-6">
-                              <div className="space-y-2">
-                                <Label htmlFor="s-email">Email *</Label>
-                                <Input
-                                  id="s-email"
-                                  type="email"
-                                  required
-                                  value={soporteForm.email}
-                                  onChange={(e) => setSoporteForm({...soporteForm, email: e.target.value})}
-                                  placeholder="correo@empresa.com"
-                                />
-                              </div>
-                              <div className="space-y-2">
-                                <Label htmlFor="s-telefono">Teléfono *</Label>
-                                <Input
-                                  id="s-telefono"
-                                  type="tel"
-                                  required
-                                  value={soporteForm.telefono}
-                                  onChange={(e) => setSoporteForm({...soporteForm, telefono: e.target.value})}
-                                  placeholder="(55) 1234-5678"
-                                />
-                              </div>
-                            </div>
-
-                            <div className="grid sm:grid-cols-2 gap-6">
-                              <div className="space-y-2">
-                                <Label htmlFor="s-tipo">Tipo de solicitud *</Label>
-                                <Select
-                                  value={soporteForm.tipoSolicitud}
-                                  onValueChange={(value) => setSoporteForm({...soporteForm, tipoSolicitud: value})}
-                                  required
-                                >
-                                  <SelectTrigger>
-                                    <SelectValue placeholder="Seleccione tipo" />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    {REQUEST_TYPES.map((type) => (
-                                      <SelectItem key={type.id} value={type.id}>
-                                        {type.name}
-                                      </SelectItem>
-                                    ))}
-                                  </SelectContent>
-                                </Select>
-                              </div>
-                              <div className="space-y-2">
-                                <Label htmlFor="s-severidad">Severidad *</Label>
-                                <Select
-                                  value={soporteForm.severidad}
-                                  onValueChange={(value) => setSoporteForm({...soporteForm, severidad: value})}
-                                  required
-                                >
-                                  <SelectTrigger>
-                                    <SelectValue placeholder="Seleccione severidad" />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    {SEVERITY_LEVELS.map((level) => (
-                                      <SelectItem key={level.id} value={level.id}>
-                                        {level.name}
-                                      </SelectItem>
-                                    ))}
-                                  </SelectContent>
-                                </Select>
-                              </div>
-                            </div>
-
-                            <div className="space-y-2">
-                              <Label htmlFor="s-descripcion">Descripción del problema *</Label>
-                              <Textarea
-                                id="s-descripcion"
-                                required
-                                value={soporteForm.descripcion}
-                                onChange={(e) => setSoporteForm({...soporteForm, descripcion: e.target.value})}
-                                placeholder="Describa detalladamente el problema o solicitud..."
-                                rows={5}
-                              />
-                            </div>
-
-                            <div className="space-y-2">
-                              <Label htmlFor="s-adjuntos">Adjuntos (opcional)</Label>
-                              <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
-                                <input
-                                  id="s-adjuntos"
-                                  type="file"
-                                  multiple
-                                  className="hidden"
-                                  onChange={(e) => setSoporteForm({...soporteForm, adjuntos: e.target.files})}
-                                />
-                                <label htmlFor="s-adjuntos" className="cursor-pointer">
-                                  <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                                  <p className="text-sm text-muted-foreground">
-                                    Arrastre archivos aquí o haga clic para seleccionar
-                                  </p>
-                                  <p className="text-xs text-muted-foreground mt-1">
-                                    Capturas de pantalla, logs, documentos (máx. 10MB)
-                                  </p>
-                                </label>
-                                {soporteForm.adjuntos && soporteForm.adjuntos.length > 0 && (
-                                  <p className="text-sm text-primary mt-2">
-                                    {soporteForm.adjuntos.length} archivo(s) seleccionado(s)
-                                  </p>
-                                )}
-                              </div>
-                            </div>
-
-                            <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                              {isSubmitting ? (
-                                <>
-                                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                  Enviando...
-                                </>
-                              ) : (
-                                <>
-                                  <Send className="mr-2 h-4 w-4" />
-                                  Enviar solicitud
-                                </>
-                              )}
-                            </Button>
-                          </form>
-                        )}
-                      </>
-                    )}
-                  </TabsContent>
-                </Tabs>
+                </div>
               </motion.div>
             </div>
           </div>
