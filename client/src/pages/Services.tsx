@@ -1,7 +1,7 @@
 /**
- * Services Page - IAMET
+ * Services Page - IAMET Cableado Estructurado
  * Swiss Precision Tech Design
- * Página de servicios mostrando capacidades de la empresa
+ * Página de servicios de cableado estructurado con PANDUIT
  */
 
 import Header from "@/components/Header";
@@ -37,95 +37,96 @@ const staggerContainer = {
 
 const services = [
   {
-    id: "infraestructura",
+    id: "cableado-certificado",
     icon: Network,
-    title: "Infraestructura Física",
-    subtitle: "Cableado Estructurado",
-    benefit: "Conectividad confiable que garantiza la comunicación ininterrumpida de su empresa",
+    title: "Cableado Estructurado Certificado",
+    subtitle: "Cobre Cat 6/6A/7",
+    benefit: "Infraestructura de red certificada con materiales PANDUIT y garantía extendida de fábrica de 25 años",
     features: [
-      "Diseño e instalación de cableado categoría 6/6A/7",
-      "Certificación y documentación completa",
-      "Fibra óptica y backbone de alta velocidad"
+      "Instalación de cableado Cat 6, Cat 6A y Cat 7",
+      "Certificación de cada punto con equipo Fluke",
+      "Garantía PANDUIT de 25 años en materiales y mano de obra"
     ],
     image: "/images/services-network.jpg"
   },
   {
-    id: "seguridad",
-    icon: Shield,
-    title: "Seguridad",
-    subtitle: "Control de Acceso y CCTV",
-    benefit: "Protección integral de sus instalaciones con monitoreo 24/7 y control de accesos",
+    id: "fibra-optica",
+    icon: Radio,
+    title: "Fibra Óptica",
+    subtitle: "Backbone de Alta Velocidad",
+    benefit: "Enlaces de fibra óptica monomodo y multimodo para backbone y conexiones de largo alcance",
     features: [
-      "Sistemas de videovigilancia IP de alta definición",
-      "Control de acceso biométrico y tarjetas",
-      "Integración con sistemas de alarma"
+      "Fibra monomodo y multimodo",
+      "Fusiones certificadas con OTDR",
+      "Enlaces de campus y data center"
     ],
-    image: "/images/security-systems.jpg"
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
   },
   {
-    id: "audio",
-    icon: Volume2,
-    title: "Audio y Voceo",
-    subtitle: "Sistemas de Sonido Profesional",
-    benefit: "Comunicación clara y efectiva en todas sus instalaciones",
-    features: [
-      "Sistemas de voceo y paging",
-      "Audio ambiental y música funcional",
-      "Integración con sistemas de emergencia"
-    ],
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80"
-  },
-  {
-    id: "salas",
-    icon: MonitorPlay,
-    title: "Salas de Juntas",
-    subtitle: "Equipamiento Audiovisual",
-    benefit: "Espacios de colaboración equipados con tecnología de punta",
-    features: [
-      "Pantallas interactivas y proyección",
-      "Videoconferencia profesional",
-      "Automatización y control centralizado"
-    ],
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
-  },
-  {
-    id: "software",
+    id: "proyectos-ejecutivos",
     icon: Code2,
-    title: "Desarrollo de Software",
-    subtitle: "Soluciones a la Medida",
-    benefit: "Software personalizado que automatiza y optimiza sus procesos de negocio",
+    title: "Proyectos Ejecutivos",
+    subtitle: "Diseño y Documentación",
+    benefit: "Diseño profesional de su infraestructura de red con documentación completa y detallada",
     features: [
-      "Aplicaciones web y móviles",
-      "Integración de sistemas empresariales",
-      "Automatización de procesos (RPA)"
+      "Levantamiento y análisis de requerimientos",
+      "Diseño de topología y rutas de cableado",
+      "Planos arquitectónicos y diagramas de red"
     ],
     image: "/images/software-dashboard.jpg"
   },
   {
-    id: "computo",
+    id: "memorias-tecnicas",
     icon: Laptop,
-    title: "Equipo de Cómputo",
-    subtitle: "Hardware Empresarial",
-    benefit: "Equipamiento confiable con soporte y mantenimiento incluido",
+    title: "Memorias Técnicas",
+    subtitle: "Documentación Profesional",
+    benefit: "Entrega de documentación técnica completa para respaldo y mantenimiento futuro de su red",
     features: [
-      "Venta y arrendamiento de equipos",
-      "Servidores y almacenamiento",
-      "Mantenimiento preventivo y correctivo"
+      "Memorias descriptivas del proyecto",
+      "Planos As-Built actualizados",
+      "Reportes de certificación punto por punto"
     ],
     image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80"
   },
   {
-    id: "rfid",
-    icon: Radio,
-    title: "Soluciones RFID",
-    subtitle: "Identificación por Radiofrecuencia",
-    benefit: "Trazabilidad y control de activos en tiempo real",
+    id: "certificaciones",
+    icon: Shield,
+    title: "Certificaciones PANDUIT",
+    subtitle: "Garantía de 25 Años",
+    benefit: "Certificación oficial de fabricante que garantiza el rendimiento de su infraestructura por 25 años",
     features: [
-      "Control de inventarios automatizado",
-      "Seguimiento de activos fijos",
-      "Integración con sistemas ERP"
+      "Registro ante PANDUIT como instalación certificada",
+      "Garantía extendida de fábrica de 25 años",
+      "Certificación de cumplimiento TIA/EIA-568"
     ],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+    image: "panduit-logo",
+    isLogo: true
+  },
+  {
+    id: "mantenimiento",
+    icon: MonitorPlay,
+    title: "Mantenimiento de Red",
+    subtitle: "Soporte Preventivo y Correctivo",
+    benefit: "Servicio de mantenimiento para asegurar el óptimo funcionamiento de su infraestructura de cableado",
+    features: [
+      "Diagnóstico y certificación de puntos existentes",
+      "Reubicación y extensión de puntos de red",
+      "Actualización de documentación técnica"
+    ],
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+  },
+  {
+    id: "consultoria",
+    icon: Volume2,
+    title: "Consultoría de Infraestructura",
+    subtitle: "Asesoría Especializada",
+    benefit: "Evaluación técnica de su infraestructura actual y recomendaciones de mejora",
+    features: [
+      "Auditoría de cableado existente",
+      "Recomendaciones de actualización tecnológica",
+      "Planeación de capacidad futura"
+    ],
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80"
   }
 ];
 
@@ -135,9 +136,19 @@ export default function Services() {
       <Header />
       
       <main className="flex-1 pt-20">
-        {/* Hero Section */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container">
+        {/* Hero Section con imagen de fondo */}
+        <section className="relative min-h-[60vh] flex items-center">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1920&q=80"
+              alt="Cableado estructurado profesional"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
+          </div>
+
+          <div className="container relative z-10">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -148,11 +159,11 @@ export default function Services() {
                 Nuestros Servicios
               </motion.span>
               <motion.h1 variants={fadeInUp} className="mt-4 mb-6">
-                Capacidades que garantizan su operación
+                Soluciones de cableado estructurado certificado
               </motion.h1>
               <motion.p variants={fadeInUp} className="text-xl text-muted-foreground">
-                Soluciones integrales de infraestructura tecnológica diseñadas para 
-                mantener su negocio funcionando sin interrupciones.
+                Infraestructura de red profesional con materiales PANDUIT, certificación
+                internacional y garantía extendida de fábrica de hasta 25 años.
               </motion.p>
             </motion.div>
           </div>
@@ -202,29 +213,51 @@ export default function Services() {
                     <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
                       <Link href="/contacto?tipo=ventas">
                         <Button>
-                          Hablar con un asesor
+                          Solicitar cotización
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                       </Link>
                       <Link href="/contacto">
                         <Button variant="outline">
-                          Solicitar visita
+                          Agendar visita técnica
                         </Button>
                       </Link>
                     </motion.div>
                   </div>
 
                   {/* Image */}
-                  <motion.div 
+                  <motion.div
                     variants={fadeInUp}
                     className={index % 2 === 1 ? "lg:order-1" : ""}
                   >
                     <div className="relative">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="rounded-lg shadow-xl w-full aspect-[4/3] object-cover"
-                      />
+                      {service.isLogo ? (
+                        <div className="rounded-lg shadow-xl w-full aspect-[4/3] bg-white flex flex-col items-center justify-center p-12 border border-border">
+                          {/* PANDUIT Logo Estilizado */}
+                          <div className="text-center">
+                            <div className="text-5xl md:text-6xl font-black text-[#003366] tracking-wider mb-4">
+                              PANDUIT
+                            </div>
+                            <div className="text-[#003366]/70 text-lg font-medium tracking-widest">
+                              CERTIFIED INSTALLER
+                            </div>
+                            <div className="mt-6 flex items-center justify-center gap-2">
+                              <Shield className="w-8 h-8 text-primary" />
+                              <span className="text-primary font-bold text-xl">25 AÑOS</span>
+                              <Shield className="w-8 h-8 text-primary" />
+                            </div>
+                            <div className="text-muted-foreground text-sm mt-2">
+                              Garantía Extendida de Fábrica
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="rounded-lg shadow-xl w-full aspect-[4/3] object-cover"
+                        />
+                      )}
                       {/* Number decoration */}
                       <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary rounded-lg flex items-center justify-center shadow-lg">
                         <span className="text-3xl font-black text-white">
@@ -250,11 +283,11 @@ export default function Services() {
               className="max-w-3xl mx-auto text-center"
             >
               <motion.h2 variants={fadeInUp} className="text-white mb-6">
-                ¿No encuentra lo que busca?
+                ¿Tiene un proyecto especial?
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-white/80 text-lg mb-10">
-                Contamos con capacidad para desarrollar soluciones personalizadas 
-                que se adapten exactamente a las necesidades de su negocio.
+                Desarrollamos soluciones de cableado a la medida para data centers,
+                plantas industriales, edificios corporativos y más.
               </motion.p>
               <motion.div variants={fadeInUp}>
                 <Link href="/contacto">

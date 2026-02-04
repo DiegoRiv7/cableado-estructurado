@@ -12,8 +12,7 @@ import { Link, useLocation } from "wouter";
 const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Servicios", href: "/servicios" },
-  { name: "Software", href: "/software" },
-  { name: "Blog", href: "/blog" },
+  { name: "NetDoc", href: "/software" },
   { name: "Contacto", href: "/contacto" },
 ];
 
@@ -47,7 +46,7 @@ export default function Header() {
                 IAMET
               </span>
               <span className="hidden sm:inline-block ml-2 text-xs font-medium text-muted-foreground uppercase tracking-widest">
-                Continuidad Operativa
+                Cableado Estructurado
               </span>
             </div>
           </Link>
@@ -77,7 +76,7 @@ export default function Header() {
                 size="sm"
                 className="font-medium"
               >
-                Solicitar diagnóstico
+                Solicitar cotización
               </Button>
             </Link>
           </div>
@@ -126,7 +125,7 @@ export default function Header() {
                 <div className="p-6 border-t border-border">
                   <Link href="/contacto" onClick={() => setIsOpen(false)}>
                     <Button className="w-full" size="lg">
-                      Solicitar diagnóstico
+                      Solicitar cotización
                     </Button>
                   </Link>
                 </div>

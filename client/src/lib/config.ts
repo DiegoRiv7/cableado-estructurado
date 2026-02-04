@@ -1,9 +1,11 @@
 /**
- * IAMET Website Configuration
- * ===========================
+ * IAMET Cableado Estructurado - Website Configuration
+ * ====================================================
  * Este archivo contiene todos los placeholders editables para la integración con Bitrix24
  * y la información de contacto de la empresa.
- * 
+ *
+ * Landing page especializada en servicios de cableado estructurado con PANDUIT
+ *
  * INSTRUCCIONES:
  * 1. Reemplace los valores "PEGAR_AQUI" con los scripts/URLs correspondientes de Bitrix24
  * 2. Actualice la información de contacto según sea necesario
@@ -74,13 +76,13 @@ export const BITRIX_LIVECHAT_WIDGET_SCRIPT = "PEGAR_AQUI";
 // ============================================
 
 export const CONTACT_INFO = {
-  email: "contacto@iamet.com.mx",
-  phone: "+52 (55) 1234-5678",
-  phoneDisplay: "(55) 1234-5678",
-  address: "Av. Insurgentes Sur 1234, Col. Del Valle, CDMX, México, CP 03100",
-  addressShort: "Col. Del Valle, CDMX",
+  email: "contacto@iamet.mx",
+  phone: "+52 664 380 8965",
+  phoneDisplay: "664 380 8965",
+  address: "Boulevard Paseo del Río No. 16220, Local 7C y 6C, Col. Río Tijuana 3ra Etapa, C.P. 22226, Tijuana, Baja California, México",
+  addressShort: "Río Tijuana, Tijuana, B.C.",
   schedule: "Lunes a Viernes: 9:00 - 18:00",
-  emergencyPhone: "+52 (55) 9876-5432",
+  emergencyPhone: "+52 664 380 8965",
 };
 
 // ============================================
@@ -98,14 +100,13 @@ export const SOCIAL_LINKS = {
 // ============================================
 
 export const SERVICES = [
-  { id: "infraestructura", name: "Infraestructura Física (Cableado Estructurado)" },
-  { id: "seguridad", name: "Seguridad (Control de Acceso y CCTV)" },
-  { id: "audio", name: "Audio y Voceo" },
-  { id: "salas", name: "Salas de Juntas" },
-  { id: "software", name: "Desarrollo de Software" },
-  { id: "computo", name: "Equipo de Cómputo" },
-  { id: "rfid", name: "Soluciones RFID" },
-  { id: "software-propio", name: "Software Propio IAMET" },
+  { id: "proyectos-ejecutivos", name: "Proyectos Ejecutivos de Cableado" },
+  { id: "cableado-certificado", name: "Cableado Estructurado Certificado" },
+  { id: "fibra-optica", name: "Fibra Óptica" },
+  { id: "memorias-tecnicas", name: "Memorias Técnicas" },
+  { id: "certificaciones", name: "Certificaciones PANDUIT (25 años)" },
+  { id: "mantenimiento", name: "Mantenimiento de Infraestructura" },
+  { id: "consultoria", name: "Consultoría y Diseño de Red" },
 ];
 
 // ============================================

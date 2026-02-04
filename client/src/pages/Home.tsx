@@ -1,7 +1,8 @@
 /**
- * Home Page - IAMET
+ * Home Page - IAMET Cableado Estructurado
  * Swiss Precision Tech Design
- * Página de inicio con todas las secciones: Hero, Quiénes Somos, Visión, Misión, Valores, Por qué IAMET, CTA
+ * Landing page especializada en servicios de cableado estructurado con PANDUIT
+ * Secciones: Hero, Quiénes Somos, Visión, Misión, Valores, Por qué IAMET, CTA
  */
 
 import Header from "@/components/Header";
@@ -41,36 +42,37 @@ const staggerContainer = {
 
 // Valores de la empresa
 const valores = [
-  { icon: Shield, title: "Integridad", description: "Actuamos con honestidad y transparencia en cada interacción" },
-  { icon: Award, title: "Excelencia profesional", description: "Buscamos la perfección en cada proyecto que emprendemos" },
-  { icon: Clock, title: "Compromiso y disponibilidad", description: "Estamos presentes cuando más nos necesita" },
-  { icon: Lightbulb, title: "Innovación continua", description: "Adoptamos las mejores tecnologías del mercado" },
-  { icon: Users, title: "Trabajo en equipo", description: "Colaboramos para lograr resultados excepcionales" },
-  { icon: Target, title: "Orientación al cliente", description: "Sus objetivos son nuestra prioridad" },
-  { icon: Heart, title: "Responsabilidad y mérito", description: "Asumimos compromisos y reconocemos el esfuerzo" },
+  { icon: Shield, title: "Calidad Certificada", description: "Instalaciones con certificación PANDUIT y garantía de 25 años" },
+  { icon: Award, title: "Excelencia Técnica", description: "Equipo certificado en estándares internacionales de cableado" },
+  { icon: Clock, title: "Cumplimiento", description: "Entrega de proyectos en tiempo y forma con documentación completa" },
+  { icon: Lightbulb, title: "Tecnología de Punta", description: "Soluciones Cat 6A, Cat 7 y fibra óptica de última generación" },
+  { icon: Users, title: "Soporte Integral", description: "Acompañamiento desde el diseño hasta la certificación final" },
+  { icon: Target, title: "Precisión", description: "Memorias técnicas detalladas y documentación profesional" },
+  { icon: Heart, title: "Confianza", description: "Más de 15 años respaldando la infraestructura de red de empresas" },
+  { icon: CheckCircle, title: "Garantía Total", description: "Respaldo completo de fabricante con certificación de por vida" },
 ];
 
 // Por qué IAMET
 const porQueIamet = [
   {
     number: "01",
-    title: "15+ años de experiencia",
-    description: "Más de una década y media resolviendo desafíos tecnológicos para empresas de todos los tamaños."
+    title: "Partner Certificado PANDUIT",
+    description: "Somos integradores autorizados de PANDUIT, líder mundial en soluciones de infraestructura física de red."
   },
   {
     number: "02",
-    title: "Continuidad operativa garantizada",
-    description: "Infraestructura y procesos diseñados para que su operación nunca se detenga."
+    title: "Garantía de 25 años",
+    description: "Nuestras instalaciones certificadas cuentan con garantía extendida de fábrica de hasta 25 años."
   },
   {
     number: "03",
-    title: "Enfoque preventivo",
-    description: "Anticipamos problemas antes de que afecten su negocio con monitoreo y mantenimiento proactivo."
+    title: "Proyectos ejecutivos completos",
+    description: "Desarrollamos memorias técnicas, planos As-Built y documentación profesional para cada proyecto."
   },
   {
     number: "04",
-    title: "Talento especializado",
-    description: "Equipo certificado y en constante actualización con las últimas tecnologías."
+    title: "Certificación internacional",
+    description: "Técnicos certificados en estándares TIA/EIA-568, ISO/IEC 11801 y BICSI."
   },
 ];
 
@@ -104,28 +106,28 @@ export default function Home() {
                 
                 {/* H1 */}
                 <motion.h1 variants={fadeInUp} className="mb-6">
-                  Continuidad operativa para su infraestructura tecnológica
+                  Cableado Estructurado Certificado con Garantía de 25 Años
                 </motion.h1>
-                
+
                 {/* Subtitle */}
-                <motion.p 
+                <motion.p
                   variants={fadeInUp}
                   className="text-xl md:text-2xl text-muted-foreground font-light mb-10 max-w-2xl"
                 >
-                  Infraestructura crítica, seguridad y software para operaciones sin interrupciones
+                  Partner certificado PANDUIT. Proyectos ejecutivos, memorias técnicas y certificaciones internacionales.
                 </motion.p>
                 
                 {/* CTAs */}
                 <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
                   <Link href="/contacto?tipo=ventas">
                     <Button size="lg" className="text-base px-8 h-12">
-                      Solicitar diagnóstico
+                      Solicitar cotización
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
                   <Link href="/servicios">
                     <Button variant="outline" size="lg" className="text-base px-8 h-12 bg-transparent">
-                      Ver servicios
+                      Ver soluciones
                     </Button>
                   </Link>
                 </motion.div>
@@ -155,30 +157,30 @@ export default function Home() {
                   Quiénes Somos
                 </motion.span>
                 <motion.h2 variants={fadeInUp} className="mt-4 mb-6">
-                  Su socio estratégico en tecnología
+                  Expertos en infraestructura de red
                 </motion.h2>
                 <motion.p variants={fadeInUp} className="text-muted-foreground mb-6">
-                  IAMET es una empresa integradora de TI con más de 15 años de experiencia, 
-                  especializada en garantizar la continuidad operativa de organizaciones a través 
-                  de soluciones de infraestructura crítica, seguridad y desarrollo de software.
+                  IAMET es integrador certificado de PANDUIT con más de 15 años de experiencia
+                  en diseño, instalación y certificación de sistemas de cableado estructurado
+                  para empresas de todos los sectores.
                 </motion.p>
                 <motion.p variants={fadeInUp} className="text-muted-foreground mb-8">
-                  Nuestro enfoque 2026 se centra en servicios recurrentes y preventivos que 
-                  aseguran que su operación nunca se detenga. Combinamos tecnología de punta 
-                  con un equipo humano comprometido con la excelencia.
+                  Desarrollamos proyectos ejecutivos completos que incluyen memorias técnicas,
+                  planos As-Built, certificaciones de cada punto de red y garantía extendida
+                  de fábrica de hasta 25 años con PANDUIT.
                 </motion.p>
                 <motion.div variants={fadeInUp} className="flex flex-wrap gap-6">
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium">ISO 9001 Certificados</span>
+                    <span className="text-sm font-medium">Partner PANDUIT</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium">Soporte 24/7</span>
+                    <span className="text-sm font-medium">Garantía 25 años</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium">+500 clientes</span>
+                    <span className="text-sm font-medium">Certificación TIA/EIA</span>
                   </div>
                 </motion.div>
               </motion.div>
@@ -224,11 +226,11 @@ export default function Home() {
                 </div>
                 <div className="mt-4">
                   <Building2 className="w-10 h-10 text-primary mb-6" />
-                  <h3 className="mb-4">Líderes en continuidad operativa</h3>
+                  <h3 className="mb-4">Líderes en cableado certificado</h3>
                   <p className="text-muted-foreground">
-                    Ser la empresa de referencia en México para soluciones de continuidad operativa, 
-                    reconocida por nuestra capacidad de anticipar necesidades tecnológicas y 
-                    garantizar operaciones ininterrumpidas para nuestros clientes.
+                    Ser la empresa de referencia en México para soluciones de cableado estructurado,
+                    reconocida por la calidad de nuestras instalaciones certificadas y el respaldo
+                    de garantías extendidas de fabricantes líderes como PANDUIT.
                   </p>
                 </div>
               </motion.div>
@@ -248,11 +250,11 @@ export default function Home() {
                 </div>
                 <div className="mt-4">
                   <Cpu className="w-10 h-10 text-primary mb-6" />
-                  <h3 className="mb-4">Proteger su operación</h3>
+                  <h3 className="mb-4">Infraestructura de red confiable</h3>
                   <p className="text-muted-foreground">
-                    Proporcionar soluciones integrales de infraestructura tecnológica, seguridad 
-                    y software que garanticen la continuidad operativa de nuestros clientes, 
-                    con un enfoque preventivo, servicio excepcional y compromiso absoluto.
+                    Diseñar e instalar sistemas de cableado estructurado que cumplan con los
+                    más altos estándares internacionales, respaldados por certificaciones,
+                    memorias técnicas completas y garantías de fabricante de largo plazo.
                   </p>
                 </div>
               </motion.div>
@@ -369,26 +371,26 @@ export default function Home() {
                 <Zap className="w-12 h-12 text-primary mx-auto mb-6" />
               </motion.div>
               <motion.h2 variants={fadeInUp} className="text-background mb-6">
-                ¿Listo para garantizar su continuidad operativa?
+                ¿Listo para modernizar su infraestructura de red?
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-background/70 text-lg mb-10">
-                Agende un diagnóstico gratuito con nuestros expertos y descubra cómo podemos 
-                proteger y optimizar su infraestructura tecnológica.
+                Solicite una cotización sin compromiso. Nuestros expertos evaluarán su proyecto
+                y le presentarán una solución con certificación PANDUIT y garantía de 25 años.
               </motion.p>
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contacto?tipo=ventas">
                   <Button size="lg" className="text-base px-8 h-12 bg-primary hover:bg-primary/90">
-                    Agendar diagnóstico
+                    Solicitar cotización
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
                 <Link href="/contacto">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
+                  <Button
+                    variant="outline"
+                    size="lg"
                     className="text-base px-8 h-12 border-background/30 text-background hover:bg-background/10"
                   >
-                    Solicitar propuesta
+                    Agendar visita técnica
                   </Button>
                 </Link>
               </motion.div>

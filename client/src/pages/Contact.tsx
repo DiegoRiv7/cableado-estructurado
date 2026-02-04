@@ -1,7 +1,7 @@
 /**
- * Contact Page - IAMET
+ * Contact Page - IAMET Cableado Estructurado
  * Swiss Precision Tech Design
- * Página de contacto con formularios de Ventas/Diagnóstico y Servicio/Soporte
+ * Página de contacto para cotización de proyectos de cableado estructurado
  * Integración con Bitrix24 (embed y webhook)
  */
 
@@ -226,11 +226,11 @@ export default function Contact() {
                 Contacto
               </motion.span>
               <motion.h1 variants={fadeInUp} className="mt-4 mb-6">
-                Estamos para ayudarle
+                Solicite su cotización
               </motion.h1>
               <motion.p variants={fadeInUp} className="text-xl text-muted-foreground">
-                Cuéntenos sobre su proyecto o necesidad. Nuestro equipo le responderá 
-                en menos de 24 horas hábiles.
+                Cuéntenos sobre su proyecto de cableado estructurado. Nuestro equipo
+                le presentará una propuesta con certificación PANDUIT en menos de 24 horas.
               </motion.p>
             </motion.div>
           </div>
@@ -325,19 +325,19 @@ export default function Contact() {
               >
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                   <TabsList className="w-full grid grid-cols-2 h-auto p-1 bg-muted mb-8">
-                    <TabsTrigger 
-                      value="ventas" 
+                    <TabsTrigger
+                      value="ventas"
                       className="flex items-center gap-2 py-3 data-[state=active]:bg-background"
                     >
                       <ShoppingBag className="w-4 h-4" />
-                      <span>Ventas / Diagnóstico</span>
+                      <span>Cotización de Proyecto</span>
                     </TabsTrigger>
-                    <TabsTrigger 
+                    <TabsTrigger
                       value="soporte"
                       className="flex items-center gap-2 py-3 data-[state=active]:bg-background"
                     >
                       <Headphones className="w-4 h-4" />
-                      <span>Soporte / Servicio</span>
+                      <span>Soporte Técnico</span>
                     </TabsTrigger>
                   </TabsList>
 
@@ -455,7 +455,7 @@ export default function Contact() {
                               ) : (
                                 <>
                                   <Send className="mr-2 h-4 w-4" />
-                                  Solicitar diagnóstico
+                                  Solicitar cotización
                                 </>
                               )}
                             </Button>

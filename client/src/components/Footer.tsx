@@ -11,15 +11,14 @@ const footerLinks = {
   empresa: [
     { name: "Inicio", href: "/" },
     { name: "Servicios", href: "/servicios" },
-    { name: "Software", href: "/software" },
-    { name: "Blog", href: "/blog" },
+    { name: "NetDoc Software", href: "/software" },
     { name: "Contacto", href: "/contacto" },
   ],
   servicios: [
-    { name: "Infraestructura Física", href: "/servicios#infraestructura" },
-    { name: "Seguridad y CCTV", href: "/servicios#seguridad" },
-    { name: "Desarrollo de Software", href: "/servicios#software" },
-    { name: "Soluciones RFID", href: "/servicios#rfid" },
+    { name: "Cableado Certificado", href: "/servicios#cableado-certificado" },
+    { name: "Fibra Óptica", href: "/servicios#fibra-optica" },
+    { name: "Proyectos Ejecutivos", href: "/servicios#proyectos-ejecutivos" },
+    { name: "Certificaciones PANDUIT", href: "/servicios#certificaciones" },
   ],
   legal: [
     { name: "Aviso de Privacidad", href: "/privacidad" },
@@ -43,8 +42,8 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Más de 15 años garantizando la continuidad operativa de empresas 
-              a través de infraestructura crítica, seguridad y software especializado.
+              Partner certificado PANDUIT con más de 15 años de experiencia en diseño,
+              instalación y certificación de cableado estructurado con garantía de 25 años.
             </p>
             {/* Social Links */}
             <div className="flex gap-4">

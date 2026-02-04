@@ -1,28 +1,31 @@
 /**
- * Software Page - IAMET
- * Swiss Precision Tech Design
- * Página de software propio con módulos: Helpdesk, CRM, Cotizador, Control de Visitas, Almacenes
+ * Software Page - IAMET Cableado Estructurado
+ * NetDoc - Software de Gestión de Infraestructura de Cableado
+ * Con video de fondo y diseño moderno para vender el producto
  */
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { 
-  Headphones, 
-  Users, 
-  Calculator, 
-  ClipboardCheck, 
-  Package,
+import {
+  Network,
+  FileText,
+  Map,
+  Shield,
+  BarChart3,
+  Search,
   ArrowRight,
   CheckCircle,
   Zap,
   Clock,
-  BarChart3
+  Users,
+  Play,
+  Monitor
 } from "lucide-react";
+import { useState } from "react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -37,260 +40,362 @@ const staggerContainer = {
   }
 };
 
-const softwareModules = [
+const features = [
   {
-    id: "helpdesk",
-    icon: Headphones,
-    title: "Helpdesk",
-    tagline: "Gestión de tickets y soporte técnico",
-    problem: "Los tickets de soporte se pierden, no hay seguimiento y los tiempos de respuesta son impredecibles.",
-    benefit: "Sistema centralizado de tickets con SLAs automatizados, escalamiento inteligente y métricas en tiempo real.",
-    features: [
-      "Creación y seguimiento de tickets multicanal",
-      "Asignación automática por categoría y carga de trabajo",
-      "SLAs configurables con alertas automáticas",
-      "Base de conocimiento integrada",
-      "Reportes de desempeño y satisfacción"
-    ],
-    metrics: [
-      { value: "40%", label: "Reducción en tiempo de respuesta" },
-      { value: "95%", label: "Tasa de resolución en primer contacto" },
-      { value: "4.8/5", label: "Satisfacción del usuario" }
-    ]
+    icon: Network,
+    title: "Inventario de Puntos de Red",
+    description: "Registro completo de cada punto de red: ubicación, categoría, certificación, patch panel, puerto de switch y estado actual."
   },
   {
-    id: "crm",
-    icon: Users,
-    title: "CRM",
-    tagline: "Gestión de relaciones con clientes",
-    problem: "La información de clientes está dispersa, se pierden oportunidades de venta y no hay visibilidad del pipeline.",
-    benefit: "Vista 360° de cada cliente con historial completo, seguimiento de oportunidades y automatización de procesos comerciales.",
-    features: [
-      "Gestión completa de contactos y empresas",
-      "Pipeline de ventas visual y personalizable",
-      "Automatización de seguimientos y recordatorios",
-      "Integración con correo y calendario",
-      "Pronósticos de venta y reportes ejecutivos"
-    ],
-    metrics: [
-      { value: "35%", label: "Incremento en conversión" },
-      { value: "50%", label: "Reducción en ciclo de venta" },
-      { value: "100%", label: "Visibilidad del pipeline" }
-    ]
+    icon: FileText,
+    title: "Memorias Técnicas Automáticas",
+    description: "Genera memorias técnicas profesionales en PDF con un clic. Incluye diagramas, especificaciones y certificaciones."
   },
   {
-    id: "cotizador",
-    icon: Calculator,
-    title: "Cotizador",
-    tagline: "Generación de propuestas comerciales",
-    problem: "Las cotizaciones tardan días en generarse, tienen errores de precios y no hay control de versiones.",
-    benefit: "Cotizaciones profesionales en minutos con precios actualizados, aprobaciones digitales y seguimiento automático.",
-    features: [
-      "Catálogo de productos y servicios centralizado",
-      "Plantillas personalizables por tipo de cliente",
-      "Flujos de aprobación configurables",
-      "Firma electrónica integrada",
-      "Conversión automática a orden de compra"
-    ],
-    metrics: [
-      { value: "80%", label: "Reducción en tiempo de cotización" },
-      { value: "0%", label: "Errores de precio" },
-      { value: "2x", label: "Cotizaciones generadas por día" }
-    ]
+    icon: Map,
+    title: "Planos Interactivos",
+    description: "Visualiza tu infraestructura en planos interactivos. Haz clic en cualquier punto para ver su información completa."
   },
   {
-    id: "visitas",
-    icon: ClipboardCheck,
-    title: "Control de Visitas y Checadas",
-    tagline: "Registro y seguimiento de personal",
-    problem: "No hay control real de asistencia, las visitas a clientes no se documentan y el tiempo se pierde en reportes manuales.",
-    benefit: "Registro automático de asistencia con geolocalización, evidencia fotográfica y reportes instantáneos.",
-    features: [
-      "Check-in/check-out con GPS y fotografía",
-      "Registro de visitas a clientes con evidencia",
-      "Cálculo automático de horas trabajadas",
-      "Alertas de ausencias y retardos",
-      "Integración con nómina"
-    ],
-    metrics: [
-      { value: "99%", label: "Precisión en registros" },
-      { value: "100%", label: "Trazabilidad de visitas" },
-      { value: "60%", label: "Ahorro en tiempo administrativo" }
-    ]
+    icon: Shield,
+    title: "Control de Garantías",
+    description: "Seguimiento de garantías PANDUIT y otros fabricantes. Alertas automáticas antes del vencimiento."
   },
   {
-    id: "almacenes",
-    icon: Package,
-    title: "Administración de Almacenes",
-    tagline: "Control de inventarios y logística",
-    problem: "Inventarios inexactos, productos extraviados, faltantes no detectados a tiempo y exceso de stock innecesario.",
-    benefit: "Inventario en tiempo real con alertas de reorden, trazabilidad completa y optimización de niveles de stock.",
-    features: [
-      "Control de entradas y salidas en tiempo real",
-      "Múltiples almacenes y ubicaciones",
-      "Alertas de stock mínimo y máximo",
-      "Trazabilidad por lote y número de serie",
-      "Integración con compras y ventas"
-    ],
-    metrics: [
-      { value: "99.5%", label: "Exactitud de inventario" },
-      { value: "30%", label: "Reducción de stock muerto" },
-      { value: "25%", label: "Ahorro en costos de almacén" }
-    ]
+    icon: BarChart3,
+    title: "Reportes y Análisis",
+    description: "Dashboards en tiempo real: puntos activos, certificaciones pendientes, capacidad disponible y más."
+  },
+  {
+    icon: Search,
+    title: "Búsqueda Inteligente",
+    description: "Encuentra cualquier punto de red en segundos. Busca por ubicación, usuario, MAC address o número de serie."
+  }
+];
+
+const benefits = [
+  { value: "90%", label: "Reducción en tiempo de documentación" },
+  { value: "100%", label: "Trazabilidad de infraestructura" },
+  { value: "25 años", label: "Historial de cambios guardado" }
+];
+
+const useCases = [
+  {
+    title: "Para instaladores certificados",
+    description: "Documenta cada proyecto con calidad profesional. Genera entregables que impresionan a tus clientes.",
+    items: ["Certificaciones organizadas", "Reportes para cliente final", "Historial de proyectos"]
+  },
+  {
+    title: "Para empresas",
+    description: "Mantén el control total de tu infraestructura de red. Sabe exactamente qué tienes y dónde está.",
+    items: ["Inventario actualizado", "Planeación de expansiones", "Gestión de garantías"]
+  },
+  {
+    title: "Para data centers",
+    description: "Documenta cada rack, cada patch panel, cada conexión. Cumple con auditorías sin estrés.",
+    items: ["Cumplimiento normativo", "Gestión de cambios", "Capacidad en tiempo real"]
   }
 ];
 
 export default function Software() {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      
+
       <main className="flex-1 pt-20">
-        {/* Hero Section */}
+        {/* Hero Section con Video de Fondo */}
+        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+          {/* Video de fondo */}
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+              poster="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80"
+            >
+              <source
+                src="https://cdn.coverr.co/videos/coverr-typing-on-a-laptop-in-an-office-4451/1080p.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
+          </div>
+
+          <div className="container relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={staggerContainer}
+              >
+                <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
+                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                  <span className="text-sm font-medium text-primary">Software exclusivo IAMET</span>
+                </motion.div>
+
+                <motion.h1 variants={fadeInUp} className="mb-6">
+                  <span className="text-primary">NetDoc</span>
+                  <br />
+                  Gestión de Infraestructura de Cableado
+                </motion.h1>
+
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-xl text-muted-foreground mb-8 max-w-xl"
+                >
+                  El software que documenta, organiza y gestiona toda tu infraestructura de cableado estructurado.
+                  Memorias técnicas en un clic. Control total de tu red.
+                </motion.p>
+
+                <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+                  <Link href="/contacto?tipo=ventas&servicio=netdoc">
+                    <Button size="lg" className="text-base px-8 h-12">
+                      Solicitar demo gratuita
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="text-base px-8 h-12 bg-transparent"
+                    onClick={() => setIsVideoPlaying(true)}
+                  >
+                    <Play className="mr-2 w-4 h-4" />
+                    Ver video
+                  </Button>
+                </motion.div>
+
+                {/* Métricas rápidas */}
+                <motion.div variants={fadeInUp} className="flex gap-8 mt-12 pt-8 border-t border-border/50">
+                  {benefits.map((benefit, i) => (
+                    <div key={i}>
+                      <div className="text-2xl font-black text-primary">{benefit.value}</div>
+                      <div className="text-sm text-muted-foreground">{benefit.label}</div>
+                    </div>
+                  ))}
+                </motion.div>
+              </motion.div>
+
+              {/* Mockup del software */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden lg:block"
+              >
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl blur-2xl" />
+                  <div className="relative bg-card border border-border rounded-xl shadow-2xl overflow-hidden">
+                    {/* Barra de título del software */}
+                    <div className="flex items-center gap-2 px-4 py-3 bg-muted border-b border-border">
+                      <div className="flex gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-500" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                        <div className="w-3 h-3 rounded-full bg-green-500" />
+                      </div>
+                      <span className="text-sm font-medium text-muted-foreground ml-2">NetDoc - Dashboard</span>
+                    </div>
+                    {/* Screenshot del dashboard */}
+                    <img
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+                      alt="NetDoc Dashboard"
+                      className="w-full aspect-[16/10] object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Características */}
         <section className="section-padding bg-secondary/30">
           <div className="container">
             <motion.div
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true }}
               variants={staggerContainer}
-              className="max-w-3xl"
+              className="text-center mb-16"
             >
               <motion.span variants={fadeInUp} className="text-sm font-medium text-primary uppercase tracking-widest">
-                Software IAMET
+                Características
               </motion.span>
-              <motion.h1 variants={fadeInUp} className="mt-4 mb-6">
-                Soluciones propias para su operación
-              </motion.h1>
-              <motion.p variants={fadeInUp} className="text-xl text-muted-foreground">
-                Software desarrollado por IAMET, diseñado específicamente para resolver 
-                los desafíos operativos más comunes de las empresas mexicanas.
+              <motion.h2 variants={fadeInUp} className="mt-4 mb-6">
+                Todo lo que necesitas para gestionar tu infraestructura
+              </motion.h2>
+              <motion.p variants={fadeInUp} className="text-muted-foreground max-w-2xl mx-auto">
+                NetDoc centraliza toda la información de tu cableado estructurado en una sola plataforma.
+                Desde el diseño hasta el mantenimiento.
               </motion.p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {features.map((feature, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeInUp}
+                  className="group p-6 bg-card border border-border rounded-xl hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <feature.icon className="w-6 h-6 text-primary group-hover:text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-muted-foreground">{feature.description}</p>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </section>
 
-        {/* Software Modules - Tabs */}
+        {/* Demo visual / Screenshot grande */}
         <section className="section-padding">
           <div className="container">
-            <Tabs defaultValue="helpdesk" className="w-full">
-              {/* Tabs Navigation */}
-              <TabsList className="w-full flex flex-wrap justify-start gap-2 bg-transparent h-auto p-0 mb-12">
-                {softwareModules.map((module) => (
-                  <TabsTrigger
-                    key={module.id}
-                    value={module.id}
-                    className="flex items-center gap-2 px-6 py-3 rounded-lg border border-border data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:border-primary transition-all"
-                  >
-                    <module.icon className="w-4 h-4" />
-                    <span className="font-medium">{module.title}</span>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid lg:grid-cols-2 gap-12 items-center"
+            >
+              <motion.div variants={fadeInUp}>
+                <span className="text-sm font-medium text-primary uppercase tracking-widest">
+                  Interfaz intuitiva
+                </span>
+                <h2 className="mt-4 mb-6">
+                  Diseñado para técnicos, aprobado por gerentes
+                </h2>
+                <p className="text-muted-foreground mb-8">
+                  Una interfaz limpia que cualquier técnico puede usar desde el primer día.
+                  Reportes ejecutivos que los gerentes entienden y valoran.
+                </p>
 
-              {/* Tabs Content */}
-              {softwareModules.map((module) => (
-                <TabsContent key={module.id} value={module.id} className="mt-0">
-                  <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={staggerContainer}
-                    className="grid lg:grid-cols-2 gap-12 lg:gap-20"
-                  >
-                    {/* Content */}
-                    <div>
-                      <motion.div variants={fadeInUp} className="mb-8">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
-                            <module.icon className="w-8 h-8 text-primary" />
-                          </div>
-                          <div>
-                            <h2 className="text-3xl md:text-4xl font-bold">{module.title}</h2>
-                            <p className="text-muted-foreground">{module.tagline}</p>
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      {/* Problem */}
-                      <motion.div variants={fadeInUp} className="mb-8">
-                        <div className="flex items-start gap-3 p-4 bg-destructive/5 border border-destructive/20 rounded-lg">
-                          <div className="w-6 h-6 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span className="text-destructive text-sm font-bold">!</span>
-                          </div>
-                          <div>
-                            <span className="text-sm font-medium text-destructive uppercase tracking-wider">El problema</span>
-                            <p className="text-foreground mt-1">{module.problem}</p>
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      {/* Benefit */}
-                      <motion.div variants={fadeInUp} className="mb-8">
-                        <div className="flex items-start gap-3 p-4 bg-primary/5 border border-primary/20 rounded-lg">
-                          <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Zap className="w-3 h-3 text-primary" />
-                          </div>
-                          <div>
-                            <span className="text-sm font-medium text-primary uppercase tracking-wider">La solución</span>
-                            <p className="text-foreground mt-1">{module.benefit}</p>
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      {/* Features */}
-                      <motion.div variants={fadeInUp} className="mb-8">
-                        <h4 className="text-lg font-semibold mb-4">Características principales</h4>
-                        <div className="space-y-3">
-                          {module.features.map((feature, i) => (
-                            <div key={i} className="flex items-start gap-3">
-                              <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                              <span>{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </motion.div>
-
-                      {/* CTA */}
-                      <motion.div variants={fadeInUp}>
-                        <Link href={`/contacto?tipo=ventas&servicio=software-${module.id}`}>
-                          <Button size="lg">
-                            Solicitar demo
-                            <ArrowRight className="ml-2 w-4 h-4" />
-                          </Button>
-                        </Link>
-                      </motion.div>
+                <div className="space-y-4">
+                  {[
+                    "Registra puntos de red en segundos desde móvil o desktop",
+                    "Genera memorias técnicas profesionales con un clic",
+                    "Exporta a PDF, Excel o integra con tu ERP",
+                    "Funciona offline - sincroniza cuando hay conexión"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span>{item}</span>
                     </div>
+                  ))}
+                </div>
 
-                    {/* Visual */}
-                    <motion.div variants={fadeInUp} className="space-y-8">
-                      {/* Screenshot placeholder */}
-                      <div className="relative">
-                        <img
-                          src="/images/software-dashboard.jpg"
-                          alt={`${module.title} - Captura de pantalla`}
-                          className="rounded-lg shadow-2xl w-full"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent rounded-lg" />
-                      </div>
+                <div className="mt-8">
+                  <Link href="/contacto?tipo=ventas&servicio=netdoc">
+                    <Button>
+                      Agenda una demo
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
 
-                      {/* Metrics */}
-                      <div className="grid grid-cols-3 gap-4">
-                        {module.metrics.map((metric, i) => (
-                          <div key={i} className="text-center p-4 bg-card border border-border rounded-lg">
-                            <div className="text-2xl md:text-3xl font-black text-primary">{metric.value}</div>
-                            <div className="text-xs text-muted-foreground mt-1">{metric.label}</div>
-                          </div>
-                        ))}
+              <motion.div
+                variants={fadeInUp}
+                className="relative"
+              >
+                <div className="relative rounded-xl overflow-hidden shadow-2xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+                    alt="NetDoc - Interfaz de usuario"
+                    className="w-full"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+
+                  {/* Floating stats cards */}
+                  <div className="absolute bottom-4 left-4 right-4 flex gap-4">
+                    <div className="flex-1 bg-card/95 backdrop-blur-sm p-4 rounded-lg border border-border">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <Network className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold">2,847</div>
+                          <div className="text-xs text-muted-foreground">Puntos documentados</div>
+                        </div>
                       </div>
-                    </motion.div>
-                  </motion.div>
-                </TabsContent>
-              ))}
-            </Tabs>
+                    </div>
+                    <div className="flex-1 bg-card/95 backdrop-blur-sm p-4 rounded-lg border border-border">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                          <Shield className="w-5 h-5 text-green-500" />
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold">100%</div>
+                          <div className="text-xs text-muted-foreground">Certificados</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Benefits Section */}
+        {/* Casos de uso */}
         <section className="section-padding bg-secondary/30">
+          <div className="container">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-16"
+            >
+              <motion.span variants={fadeInUp} className="text-sm font-medium text-primary uppercase tracking-widest">
+                Casos de uso
+              </motion.span>
+              <motion.h2 variants={fadeInUp} className="mt-4">
+                NetDoc se adapta a tu operación
+              </motion.h2>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-3 gap-8"
+            >
+              {useCases.map((useCase, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeInUp}
+                  className="p-8 bg-card border border-border rounded-xl"
+                >
+                  <h3 className="text-xl font-semibold mb-4">{useCase.title}</h3>
+                  <p className="text-muted-foreground mb-6">{useCase.description}</p>
+                  <ul className="space-y-2">
+                    {useCase.items.map((item, j) => (
+                      <li key={j} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Ventajas */}
+        <section className="section-padding">
           <div className="container">
             <motion.div
               initial="hidden"
@@ -303,7 +408,7 @@ export default function Software() {
                 Ventajas
               </motion.span>
               <motion.h2 variants={fadeInUp} className="mt-4">
-                ¿Por qué elegir software IAMET?
+                ¿Por qué elegir NetDoc?
               </motion.h2>
             </motion.div>
 
@@ -315,10 +420,10 @@ export default function Software() {
               className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
             >
               {[
-                { icon: Zap, title: "Implementación rápida", description: "Puesta en marcha en días, no meses" },
-                { icon: Clock, title: "Soporte local", description: "Equipo en México, en tu zona horaria" },
-                { icon: BarChart3, title: "Personalizable", description: "Se adapta a tus procesos, no al revés" },
-                { icon: Users, title: "Capacitación incluida", description: "Tu equipo listo para usar el sistema" }
+                { icon: Zap, title: "Implementación rápida", description: "Listo para usar en un día, no en semanas" },
+                { icon: Clock, title: "Soporte en español", description: "Equipo de soporte en México disponible" },
+                { icon: Monitor, title: "Web y móvil", description: "Accede desde cualquier dispositivo" },
+                { icon: Users, title: "Usuarios ilimitados", description: "Sin cargos extra por usuario adicional" }
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -336,7 +441,7 @@ export default function Software() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA Final */}
         <section className="section-padding bg-foreground text-background">
           <div className="container">
             <motion.div
@@ -346,18 +451,30 @@ export default function Software() {
               variants={staggerContainer}
               className="max-w-3xl mx-auto text-center"
             >
+              <motion.div variants={fadeInUp}>
+                <Network className="w-12 h-12 text-primary mx-auto mb-6" />
+              </motion.div>
               <motion.h2 variants={fadeInUp} className="text-background mb-6">
-                ¿Listo para optimizar su operación?
+                Documenta tu infraestructura como profesional
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-background/70 text-lg mb-10">
-                Solicite una demostración personalizada y descubra cómo nuestro software 
-                puede transformar la eficiencia de su empresa.
+                Únete a los integradores que ya gestionan su cableado con NetDoc.
+                Demo gratuita y sin compromiso.
               </motion.p>
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contacto?tipo=ventas&servicio=software">
+                <Link href="/contacto?tipo=ventas&servicio=netdoc">
                   <Button size="lg" className="text-base px-8 h-12 bg-primary hover:bg-primary/90">
                     Solicitar demo gratuita
                     <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+                <Link href="/contacto">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="text-base px-8 h-12 border-background/30 text-background hover:bg-background/10"
+                  >
+                    Contactar ventas
                   </Button>
                 </Link>
               </motion.div>
@@ -368,6 +485,30 @@ export default function Software() {
 
       <Footer />
       <ChatBot />
+
+      {/* Modal de video */}
+      {isVideoPlaying && (
+        <div
+          className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setIsVideoPlaying(false)}
+        >
+          <div className="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden">
+            <button
+              onClick={() => setIsVideoPlaying(false)}
+              className="absolute top-4 right-4 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white z-10 transition-colors"
+            >
+              <span className="text-2xl">&times;</span>
+            </button>
+            <div className="w-full h-full flex items-center justify-center text-white">
+              <div className="text-center">
+                <Play className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                <p className="text-lg opacity-70">Video demo de NetDoc</p>
+                <p className="text-sm opacity-50 mt-2">Aquí iría el video de demostración del software</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
