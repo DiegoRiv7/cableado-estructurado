@@ -1,6 +1,6 @@
 /**
  * Casos de Éxito - IAMET Cableado Estructurado
- * Proyectos destacados y testimonios de clientes
+ * Proyectos destacados reales
  */
 
 import Header from "@/components/Header";
@@ -11,16 +11,14 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import {
   Building2,
-  Factory,
   Hospital,
-  GraduationCap,
-  ShoppingBag,
-  Warehouse,
+  Landmark,
   CheckCircle,
   ArrowRight,
-  Quote,
   MapPin,
-  Network
+  Network,
+  Wifi,
+  Cable
 } from "lucide-react";
 
 const fadeInUp = {
@@ -39,136 +37,61 @@ const staggerContainer = {
 const casosExito = [
   {
     id: 1,
-    icon: Building2,
-    sector: "Corporativo",
-    cliente: "Torre Corporativa Zona Río",
-    ubicacion: "Tijuana, B.C.",
-    descripcion: "Instalación completa de cableado estructurado Cat 6A para edificio corporativo de 12 pisos con más de 500 puntos de red.",
-    puntos: "500+",
-    categoria: "Cat 6A",
+    icon: Hospital,
+    sector: "Salud",
+    cliente: "Sistemas Médicos Alaris",
+    ubicacion: "El Realito, Tijuana",
+    descripcion: "Instalación de infraestructura de red para cobertura WiFi empresarial en instalaciones de BD (Becton Dickinson), líder mundial en tecnología médica.",
+    puntos: "279",
+    categoria: "Cat. 6A",
     garantia: "25 años",
     logros: [
       "Certificación PANDUIT completa",
-      "Entrega en tiempo récord",
-      "Cero fallas post-instalación"
+      "Infraestructura para WiFi de alta densidad",
+      "Cobertura total de instalaciones"
     ],
-    imagen: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+    imagen: "/images/casos/alaris.jpg"
   },
   {
     id: 2,
-    icon: Factory,
-    sector: "Industrial",
-    cliente: "Planta Manufacturera Internacional",
-    ubicacion: "Mexicali, B.C.",
-    descripcion: "Proyecto de fibra óptica y cableado industrial para planta de manufactura con ambientes hostiles y requerimientos especiales.",
-    puntos: "350+",
-    categoria: "Cat 6 Industrial + FO",
+    icon: Landmark,
+    sector: "Gobierno",
+    cliente: "Fiscalía General del Estado de Baja California",
+    ubicacion: "Edificio de Visitaduría",
+    descripcion: "Proyecto de cableado estructurado para edificio gubernamental con requerimientos de seguridad y confiabilidad para operaciones críticas.",
+    puntos: "117",
+    categoria: "Cat. 6",
     garantia: "25 años",
     logros: [
-      "Cableado resistente a interferencias",
-      "Backbone de fibra óptica",
+      "Cumplimiento de normativas gubernamentales",
+      "Red de alta disponibilidad",
       "Documentación técnica completa"
     ],
-    imagen: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80"
+    imagen: "/images/casos/fiscalia.jpg"
   },
   {
     id: 3,
-    icon: Hospital,
-    sector: "Salud",
-    cliente: "Hospital Regional",
-    ubicacion: "Tijuana, B.C.",
-    descripcion: "Infraestructura de red crítica para hospital con redundancia y alta disponibilidad para sistemas médicos.",
-    puntos: "800+",
-    categoria: "Cat 6A + FO",
+    icon: Building2,
+    sector: "Residencial",
+    cliente: "Edificio Vertical The Wesley",
+    ubicacion: "Playas de Tijuana",
+    descripcion: "Infraestructura de red para complejo residencial de lujo con múltiples torres y departamentos, garantizando conectividad en cada unidad.",
+    puntos: "182",
+    categoria: "Cat. 6",
     garantia: "25 años",
     logros: [
-      "Red redundante 99.99% uptime",
-      "Cumplimiento normativo de salud",
-      "Soporte prioritario 24/7"
+      "Cobertura en todos los departamentos",
+      "Infraestructura preparada para el futuro",
+      "Instalación durante construcción"
     ],
-    imagen: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80"
-  },
-  {
-    id: 4,
-    icon: GraduationCap,
-    sector: "Educación",
-    cliente: "Universidad Privada",
-    ubicacion: "Ensenada, B.C.",
-    descripcion: "Modernización de infraestructura de red para campus universitario con múltiples edificios y laboratorios.",
-    puntos: "1,200+",
-    categoria: "Cat 6A + FO",
-    garantia: "25 años",
-    logros: [
-      "Interconexión de 8 edificios",
-      "WiFi de alta densidad",
-      "Laboratorios especializados"
-    ],
-    imagen: "https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"
-  },
-  {
-    id: 5,
-    icon: ShoppingBag,
-    sector: "Retail",
-    cliente: "Centro Comercial Premium",
-    ubicacion: "Tijuana, B.C.",
-    descripcion: "Cableado estructurado para centro comercial con más de 100 locales y áreas comunes.",
-    puntos: "600+",
-    categoria: "Cat 6",
-    garantia: "25 años",
-    logros: [
-      "Infraestructura para 100+ locales",
-      "Sistema de seguridad integrado",
-      "Escalabilidad futura garantizada"
-    ],
-    imagen: "https://images.unsplash.com/photo-1567449303078-57ad995bd329?w=800&q=80"
-  },
-  {
-    id: 6,
-    icon: Warehouse,
-    sector: "Logística",
-    cliente: "Centro de Distribución",
-    ubicacion: "Tecate, B.C.",
-    descripcion: "Infraestructura de red para centro de distribución con sistemas de inventario y automatización.",
-    puntos: "250+",
-    categoria: "Cat 6 Industrial",
-    garantia: "25 años",
-    logros: [
-      "Integración con sistemas WMS",
-      "Cobertura WiFi industrial",
-      "Resistente a polvo y humedad"
-    ],
-    imagen: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80"
-  }
-];
-
-const testimonios = [
-  {
-    nombre: "Ing. Roberto Méndez",
-    cargo: "Director de TI",
-    empresa: "Corporativo Zona Río",
-    testimonio: "IAMET demostró profesionalismo desde el diseño hasta la certificación. La documentación y memorias técnicas que entregaron superaron nuestras expectativas.",
-    imagen: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80"
-  },
-  {
-    nombre: "Lic. María González",
-    cargo: "Gerente de Operaciones",
-    empresa: "Planta Industrial Mexicali",
-    testimonio: "La garantía de 25 años con PANDUIT nos dio la confianza para elegir a IAMET. Llevamos 3 años sin ningún problema en la red.",
-    imagen: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80"
-  },
-  {
-    nombre: "Dr. Carlos Ramírez",
-    cargo: "Director General",
-    empresa: "Hospital Regional",
-    testimonio: "En el sector salud no podemos permitir fallas. IAMET entendió nuestras necesidades y entregó una red con redundancia que funciona perfectamente.",
-    imagen: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&q=80"
+    imagen: "/images/casos/wesley.jpg"
   }
 ];
 
 const estadisticas = [
-  { valor: "50+", label: "Proyectos completados" },
-  { valor: "10,000+", label: "Puntos de red instalados" },
-  { valor: "100%", label: "Clientes satisfechos" },
+  { valor: "578+", label: "Nodos instalados" },
+  { valor: "3", label: "Sectores diferentes" },
+  { valor: "100%", label: "Certificados PANDUIT" },
   { valor: "25", label: "Años de garantía" }
 ];
 
@@ -182,7 +105,7 @@ export default function CasosExito() {
         <section className="relative min-h-[50vh] flex items-center">
           <div className="absolute inset-0 z-0">
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80"
+              src="/images/casos/alaris.jpg"
               alt="Casos de éxito"
               className="w-full h-full object-cover"
             />
@@ -203,8 +126,8 @@ export default function CasosExito() {
                 Proyectos que respaldan nuestra experiencia
               </motion.h1>
               <motion.p variants={fadeInUp} className="text-xl text-muted-foreground">
-                Más de 50 proyectos exitosos en Baja California con certificación PANDUIT
-                y garantía de 25 años.
+                Instalaciones certificadas PANDUIT en los sectores de salud, gobierno y residencial
+                con garantía de 25 años.
               </motion.p>
             </motion.div>
           </div>
@@ -249,7 +172,7 @@ export default function CasosExito() {
               </motion.h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {casosExito.map((caso, index) => (
                 <motion.div
                   key={caso.id}
@@ -260,7 +183,7 @@ export default function CasosExito() {
                   className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
                   {/* Imagen */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden">
                     <img
                       src={caso.imagen}
                       alt={caso.cliente}
@@ -287,7 +210,7 @@ export default function CasosExito() {
                     <div className="grid grid-cols-3 gap-2 mb-4 p-3 bg-secondary/50 rounded-lg">
                       <div className="text-center">
                         <div className="text-lg font-bold text-primary">{caso.puntos}</div>
-                        <div className="text-xs text-muted-foreground">Puntos</div>
+                        <div className="text-xs text-muted-foreground">Nodos</div>
                       </div>
                       <div className="text-center border-x border-border">
                         <div className="text-lg font-bold text-primary">{caso.categoria}</div>
@@ -315,7 +238,7 @@ export default function CasosExito() {
           </div>
         </section>
 
-        {/* Testimonios */}
+        {/* Sectores */}
         <section className="section-padding bg-secondary/30">
           <div className="container">
             <motion.div
@@ -323,42 +246,63 @@ export default function CasosExito() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16"
+              className="text-center mb-12"
             >
               <motion.span variants={fadeInUp} className="text-sm font-medium text-primary uppercase tracking-widest">
-                Testimonios
+                Experiencia Multisectorial
               </motion.span>
               <motion.h2 variants={fadeInUp} className="mt-4">
-                Lo que dicen nuestros clientes
+                Soluciones para cada industria
               </motion.h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonios.map((testimonio, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-card border border-border rounded-xl p-6"
-                >
-                  <Quote className="w-10 h-10 text-primary/20 mb-4" />
-                  <p className="text-muted-foreground mb-6 italic">"{testimonio.testimonio}"</p>
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={testimonio.imagen}
-                      alt={testimonio.nombre}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-semibold">{testimonio.nombre}</div>
-                      <div className="text-sm text-muted-foreground">{testimonio.cargo}</div>
-                      <div className="text-sm text-primary">{testimonio.empresa}</div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center p-6"
+              >
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Hospital className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Sector Salud</h3>
+                <p className="text-muted-foreground text-sm">
+                  Infraestructura crítica para hospitales y clínicas con alta disponibilidad y redundancia.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-center p-6"
+              >
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Landmark className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Sector Gobierno</h3>
+                <p className="text-muted-foreground text-sm">
+                  Proyectos que cumplen con normativas y estándares de seguridad gubernamentales.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-center p-6"
+              >
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Building2 className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Sector Residencial</h3>
+                <p className="text-muted-foreground text-sm">
+                  Edificios y desarrollos habitacionales con conectividad de primer nivel.
+                </p>
+              </motion.div>
             </div>
           </div>
         </section>

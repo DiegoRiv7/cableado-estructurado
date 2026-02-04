@@ -11,6 +11,7 @@ const footerLinks = {
   empresa: [
     { name: "Inicio", href: "/" },
     { name: "Servicios", href: "/servicios" },
+    { name: "Casos de Éxito", href: "/casos-exito" },
     { name: "Socios Comerciales", href: "/socios" },
     { name: "NetDoc Software", href: "/software" },
     { name: "Contacto", href: "/contacto" },
