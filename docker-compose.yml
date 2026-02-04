@@ -1,12 +1,12 @@
 services:
-  iamet-web:
+  iamet-cableado:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: iamet-website
+    container_name: iamet-cableado
     restart: unless-stopped
     ports:
-      - "3001:3000"
+      - "3003:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000

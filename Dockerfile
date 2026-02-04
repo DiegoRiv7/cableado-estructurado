@@ -1,38 +1,30 @@
 # Etapa 1: Build
 FROM node:20-alpine AS builder
 
-# Instalar pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
 WORKDIR /app
 
 # Copiar archivos de dependencias primero (mejor cache)
-COPY package.json pnpm-lock.yaml ./
-COPY patches ./patches/
+COPY package.json package-lock.json ./
 
 # Instalar dependencias
-RUN pnpm install --frozen-lockfile
+RUN npm ci --legacy-peer-deps
 
 # Copiar el resto del código
 COPY . .
 
 # Construir la aplicación
-RUN pnpm build
+RUN npm run build
 
 # Etapa 2: Producción
 FROM node:20-alpine AS production
 
-# Instalar pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
 WORKDIR /app
 
 # Copiar package.json para producción
-COPY package.json pnpm-lock.yaml ./
-COPY patches ./patches/
+COPY package.json package-lock.json ./
 
 # Instalar solo dependencias de producción
-RUN pnpm install --frozen-lockfile --prod
+RUN npm ci --legacy-peer-deps --omit=dev
 
 # Copiar archivos compilados desde builder
 COPY --from=builder /app/dist ./dist
