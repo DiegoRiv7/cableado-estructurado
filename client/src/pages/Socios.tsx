@@ -227,42 +227,6 @@ export default function Socios() {
           </div>
         </section>
 
-        {/* Marcas Disponibles */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="text-center mb-12"
-            >
-              <motion.span variants={fadeInUp} className="text-sm font-medium text-primary uppercase tracking-widest">
-                Marcas
-              </motion.span>
-              <motion.h2 variants={fadeInUp} className="mt-4">
-                Marcas disponibles a través de nuestros distribuidores
-              </motion.h2>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto"
-            >
-              {marcasDisponibles.map((marca, index) => (
-                <div
-                  key={index}
-                  className="px-6 py-3 bg-card border border-border rounded-lg font-semibold text-foreground hover:border-primary/50 hover:shadow-md transition-all duration-300"
-                >
-                  {marca}
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
         {/* Por qué trabajamos con distribuidores */}
         <section className="section-padding">
           <div className="container">
