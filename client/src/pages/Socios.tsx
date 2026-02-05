@@ -192,6 +192,7 @@ export default function Socios() {
                       src={distribuidor.imagen}
                       alt={distribuidor.nombre}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                     <div className="absolute bottom-4 left-4">
@@ -273,6 +274,7 @@ export default function Socios() {
                     src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
                     alt="Trabajo en equipo"
                     className="rounded-xl shadow-xl"
+                    loading="lazy"
                   />
                 </motion.div>
               </div>

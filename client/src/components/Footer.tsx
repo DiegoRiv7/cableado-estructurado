@@ -3,8 +3,8 @@
  * Footer minimalista con información de contacto y enlaces
  */
 
-import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/config";
-import { Linkedin, Facebook, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { CONTACT_INFO } from "@/lib/config";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "wouter";
 
 const footerLinks = {
@@ -43,40 +43,10 @@ export default function Footer() {
                 IAMET
               </span>
             </Link>
-            <p className="text-background/70 text-sm leading-relaxed mb-6">
+            <p className="text-background/70 text-sm leading-relaxed">
               Partner certificado PANDUIT con más de 15 años de experiencia en diseño,
               instalación y certificación de cableado estructurado con garantía de 25 años.
             </p>
-            {/* Social Links */}
-            <div className="flex gap-4">
-              <a
-                href={SOCIAL_LINKS.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           {/* Links Column - Empresa */}

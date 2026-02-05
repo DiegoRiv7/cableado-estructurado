@@ -22,10 +22,8 @@ import {
   Zap,
   Clock,
   Users,
-  Play,
   Monitor
 } from "lucide-react";
-import { useState } from "react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -98,8 +96,6 @@ const useCases = [
 ];
 
 export default function Software() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
@@ -151,22 +147,13 @@ export default function Software() {
                   Memorias técnicas en un clic. Control total de tu red.
                 </motion.p>
 
-                <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+                <motion.div variants={fadeInUp}>
                   <Link href="/contacto?tipo=ventas&servicio=netdoc">
                     <Button size="lg" className="text-base px-8 h-12">
                       Solicitar demo gratuita
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="text-base px-8 h-12 bg-transparent"
-                    onClick={() => setIsVideoPlaying(true)}
-                  >
-                    <Play className="mr-2 w-4 h-4" />
-                    Ver video
-                  </Button>
                 </motion.div>
 
                 {/* Métricas rápidas */}
@@ -204,6 +191,7 @@ export default function Software() {
                       src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
                       alt="NetDoc Dashboard"
                       className="w-full aspect-[16/10] object-cover"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -313,6 +301,7 @@ export default function Software() {
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
                     alt="NetDoc - Interfaz de usuario"
                     className="w-full"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
 
@@ -485,30 +474,6 @@ export default function Software() {
 
       <Footer />
       <ChatBot />
-
-      {/* Modal de video */}
-      {isVideoPlaying && (
-        <div
-          className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={() => setIsVideoPlaying(false)}
-        >
-          <div className="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden">
-            <button
-              onClick={() => setIsVideoPlaying(false)}
-              className="absolute top-4 right-4 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white z-10 transition-colors"
-            >
-              <span className="text-2xl">&times;</span>
-            </button>
-            <div className="w-full h-full flex items-center justify-center text-white">
-              <div className="text-center">
-                <Play className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                <p className="text-lg opacity-70">Video demo de NetDoc</p>
-                <p className="text-sm opacity-50 mt-2">Aquí iría el video de demostración del software</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

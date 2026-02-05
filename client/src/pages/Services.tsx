@@ -256,6 +256,7 @@ export default function Services() {
                           src={service.image}
                           alt={service.title}
                           className="rounded-lg shadow-xl w-full aspect-[4/3] object-cover"
+                          loading="lazy"
                         />
                       )}
                       {/* Number decoration */}

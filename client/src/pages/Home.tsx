@@ -135,12 +135,6 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
-              <div className="w-1 h-2 bg-muted-foreground/50 rounded-full" />
-            </div>
-          </div>
         </section>
 
         {/* Quiénes Somos */}
@@ -196,6 +190,7 @@ export default function Home() {
                   src="/images/team-collaboration.jpg"
                   alt="Equipo IAMET colaborando"
                   className="rounded-lg shadow-2xl"
+                  loading="lazy"
                 />
                 {/* Stats Overlay */}
                 <div className="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-lg shadow-xl">
@@ -351,6 +346,7 @@ export default function Home() {
                   src="/images/services-network.jpg"
                   alt="Red de infraestructura"
                   className="rounded-lg shadow-xl"
+                  loading="lazy"
                 />
               </motion.div>
             </div>

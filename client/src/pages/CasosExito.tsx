@@ -188,6 +188,7 @@ export default function CasosExito() {
                       src={caso.imagen}
                       alt={caso.cliente}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
